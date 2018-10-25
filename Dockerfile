@@ -2,7 +2,7 @@ FROM python:3
 ENV PYTHONUNBUFFERED 1
 
 RUN apt-get update
-RUN apt-get -y install libgdal-devel
+RUN apt-get -y install libgdal-dev
 
 RUN adduser pupa
 USER pupa
