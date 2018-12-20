@@ -7,14 +7,17 @@ RUN apt-get -y install libgdal-dev
 RUN adduser pupa
 USER pupa
 
-RUN export CPLUS_INCLUDE_PATH=/usr/include/gdal
-RUN export C_INCLUDE_PATH=/usr/include/gdal
+ENV CPLUS_INCLUDE_PATH=/usr/include/gdal
+ENV C_INCLUDE_PATH=/usr/include/gdal
 
-RUN mkdir /code
-COPY ./scrapers /code
+COPY ./scrapers /home/pupa
 
-WORKDIR /code
-RUN pip install -r requirements.txt
+WORKDIR /home/pupa
+RUN pip install --user -r requirements.txt
+
+ENV PATH="$PATH:/home/pupa/.local/bin"
+
+ENV DATABASE_URL=postgresql://postgresql/opencivicdata
 
 RUN touch blah
 

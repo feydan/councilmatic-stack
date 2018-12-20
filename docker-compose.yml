@@ -2,18 +2,14 @@ version: '3'
 
 services:
   postgresql:
-    image: postgres:latest
+    build: ./postgres
+    volumes:
+      - "./postgres/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d"
     ports:
       - "5432:5432"
   scrapers:
     build: .
-#    working_dir: /code
-#    command:
-#      - scrapers-init.sh
-#    volumes:
-#      - ./scrapers-init.sh:/usr/local/bin/scrapers-init.sh
-#      - ./scrapers:/code
-#    ports:
-#      - "8000:8000"
-#    depends_on:
-#      - db
+    ports:
+     - "8000:8000"
+    depends_on:
+     - postgresql
