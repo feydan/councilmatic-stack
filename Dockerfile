@@ -10,15 +10,14 @@ USER pupa
 ENV CPLUS_INCLUDE_PATH=/usr/include/gdal
 ENV C_INCLUDE_PATH=/usr/include/gdal
 
-COPY ./scrapers /home/pupa
+COPY --chown=pupa:pupa ./scrapers /home/pupa/scrapers
 
-WORKDIR /home/pupa
+WORKDIR /home/pupa/scrapers
 RUN pip install --user -r requirements.txt
 
 ENV PATH="$PATH:/home/pupa/.local/bin"
 
 ENV DATABASE_URL=postgresql://postgresql/opencivicdata
+ENV DJANGO_SETTINGS_MODULE=pupa.settings
 
-RUN touch blah
-
-CMD ["tail", "-f", "blah"]
+CMD ["tail", "-f", "requirements.txt"]
