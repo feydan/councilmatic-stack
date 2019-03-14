@@ -14,7 +14,7 @@ The goal of this project is to get the imago project, scraper-us-municipal proje
 
 ## Running the scrapers
 
-1. Ensure the containers are running: `docker-compose up`.
+1. Ensure the containers are running.  If they are still running from the Initializing step above continue to step 2.  Otherwise start the containers: `docker-compose up`.
 2. `docker-compose exec scrapers /bin/bash` (ssh's into the scrapers project)
 3. `pupa update sacramento` (runs the update script)
 
