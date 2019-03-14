@@ -5,7 +5,7 @@ The goal of this project is to get the imago project, scraper-us-municipal proje
 ## Requirements
 
 1. Install docker an docker-compose if you do not have them installed
-2. Clone this project into the the folder `scrapers` in this project Clone this project https://github.com/datamade/scrapers-us-municipal.
+2. Clone this project into the the folder `scrapers` in this project: https://github.com/datamade/scrapers-us-municipal.
 
 ## Initializing
 
