@@ -13,5 +13,6 @@ services:
      - "8000:8000"
     volumes:
       - "./scrapers:/home/pupa/scrapers"
+      - "./docker-libraries:/home/pupa/.local"
     depends_on:
      - postgresql
